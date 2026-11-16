@@ -1,0 +1,13 @@
+{
+  "name": "devshuora-school-erp-landing",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "npx @tailwindcss/cli -i ./src/input.css -o ./assets/css/output.css --watch",
+    "build": "npx @tailwindcss/cli -i ./src/input.css -o ./assets/css/output.css --minify"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.3.5",
+    "tailwindcss": "^4.3.5"
+  }
+}
