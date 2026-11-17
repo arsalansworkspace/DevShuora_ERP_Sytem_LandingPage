@@ -3,6 +3,47 @@ document.addEventListener("DOMContentLoaded", () => {
   const year = document.getElementById("year");
   if (year) year.textContent = new Date().getFullYear();
 
+
+// Floating Back to Top Button
+const backToTopButton = document.getElementById("back-to-top");
+
+if (backToTopButton) {
+  window.addEventListener("scroll", function () {
+    if (window.scrollY > 300) {
+      backToTopButton.classList.remove("opacity-0", "invisible");
+      backToTopButton.classList.add("opacity-100", "visible");
+    } else {
+      backToTopButton.classList.remove("opacity-100", "visible");
+      backToTopButton.classList.add("opacity-0", "invisible");
+    }
+  });
+}
+
+
+/* DEVSHUORA PAGE INTRO ANIMATION */
+
+function hidePageLoader() {
+  const pageLoader = document.getElementById("page-loader");
+
+  if (!pageLoader) return;
+
+  setTimeout(function () {
+    pageLoader.classList.add("loader-hidden");
+
+    setTimeout(function () {
+      pageLoader.remove();
+    }, 700);
+
+  }, 1600);
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", hidePageLoader);
+} else {
+  hidePageLoader();
+}
+
+
   const toggle = document.getElementById("menu-toggle");
   const menu = document.getElementById("mobile-menu");
   if (toggle && menu) {
