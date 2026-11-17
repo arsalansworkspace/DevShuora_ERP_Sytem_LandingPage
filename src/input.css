@@ -242,7 +242,6 @@ h1, h2, h3, .font-display {
 
 
 
-
 /* =====================================
    HERO DASHBOARD IMAGE ANIMATIONS
 ===================================== */
@@ -321,5 +320,360 @@ h1, h2, h3, .font-display {
 
   .dashboard-image {
     transition: none !important;
+  }
+}
+
+
+
+/* ==========================================
+   RTL LANGUAGE SUPPORT
+========================================== */
+
+html[dir="rtl"] {
+  direction: rtl;
+}
+
+html[dir="rtl"] body {
+  text-align: right;
+}
+
+/* Keep form controls readable in RTL */
+html[dir="rtl"] input,
+html[dir="rtl"] textarea,
+html[dir="rtl"] select {
+  text-align: right;
+}
+
+/* Urdu and Sindhi typography */
+html[lang="ur"],
+html[lang="sd"] {
+  font-family: "Noto Sans Arabic", sans-serif;
+}
+
+/* Keep Lucide icons from being mirrored */
+html[dir="rtl"] i[data-lucide] {
+  direction: ltr;
+}
+
+/* Navigation spacing */
+html[dir="rtl"] .nav-link {
+  direction: rtl;
+}
+
+
+
+/* ==========================================
+   HERO RTL SUPPORT
+========================================== */
+
+html[dir="rtl"] #home h1,
+html[dir="rtl"] #home p,
+html[dir="rtl"] #home .eyebrow {
+  text-align: right;
+}
+
+html[dir="rtl"] #home .flex.flex-col {
+  direction: rtl;
+}
+
+html[dir="rtl"] #home .flex.flex-wrap {
+  direction: rtl;
+}
+
+/* Keep dashboard screenshots unchanged */
+html[dir="rtl"] #home img {
+  direction: ltr;
+}
+
+/* Mobile alignment */
+@media (max-width: 639px) {
+  html[dir="rtl"] #home .btn-primary,
+  html[dir="rtl"] #home .btn-secondary {
+    justify-content: center;
+  }
+}
+
+
+
+/* ==========================================
+   ABOUT SECTION RTL SUPPORT
+========================================== */
+
+html[dir="rtl"] #about {
+  text-align: right;
+}
+
+/* Keep the decorative underline aligned to the right */
+html[dir="rtl"] #about .h-1.w-16 {
+  margin-left: auto;
+  margin-right: 0;
+}
+
+/* Align benefit card icons with RTL text */
+html[dir="rtl"] #about .group > div:first-child {
+  margin-left: auto;
+  margin-right: 0;
+}
+
+/* Keep icons in their original direction */
+html[dir="rtl"] #about i[data-lucide] {
+  direction: ltr;
+}
+
+
+
+/* ==========================================
+   DASHBOARD OVERVIEW RTL SUPPORT
+========================================== */
+
+html[dir="rtl"] #dashboard-overview {
+  direction: rtl;
+}
+
+/* Benefit cards */
+html[dir="rtl"] #dashboard-overview .grid.text-left {
+  text-align: right;
+}
+
+/* Keep benefit icons correctly positioned */
+html[dir="rtl"] #dashboard-overview .grid.text-left > div {
+  flex-direction: row;
+  text-align: right;
+}
+
+/* Keep dashboard screenshot unchanged */
+html[dir="rtl"] #dashboard-overview img {
+  direction: ltr;
+}
+
+/* Keep CTA centered */
+html[dir="rtl"] #dashboard-overview > .container-wide > .reveal:last-child {
+  text-align: center;
+}
+
+
+
+/* Features Section - RTL */
+html[dir="rtl"] #features {
+  direction: rtl;
+  text-align: right;
+}
+
+/* Section introduction */
+html[dir="rtl"] #features > .container-wide > .reveal:first-child {
+  text-align: center;
+}
+
+/* Feature headings and descriptions */
+html[dir="rtl"] #features h2,
+html[dir="rtl"] #features h3,
+html[dir="rtl"] #features p,
+html[dir="rtl"] #features .eyebrow {
+  direction: rtl;
+}
+
+/* Feature badges */
+html[dir="rtl"] #features .rounded-full {
+  direction: rtl;
+}
+
+/* Feature bullet points */
+html[dir="rtl"] #features ul li {
+  flex-direction: row;
+  text-align: right;
+}
+
+/* Feature links */
+html[dir="rtl"] #features a {
+  direction: rtl;
+}
+
+/* Keep icons in their original direction */
+html[dir="rtl"] #features i[data-lucide] {
+  direction: ltr;
+}
+
+/* Keep screenshots unchanged */
+html[dir="rtl"] #features img {
+  direction: ltr;
+}
+
+/* Bottom CTA */
+html[dir="rtl"] #features .bg-brand-navy h3,
+html[dir="rtl"] #features .bg-brand-navy p {
+  text-align: right;
+}
+
+html[dir="rtl"] #features .btn-primary {
+  direction: rtl;
+  justify-content: center;
+}
+
+
+
+/* ==========================================
+   USER ROLES SECTION RTL SUPPORT
+========================================== */
+
+html[dir="rtl"] #user-roles {
+  direction: rtl;
+}
+
+/* Keep role cards centered */
+html[dir="rtl"] #user-roles .group {
+  text-align: center;
+}
+
+/* Preserve icon direction */
+html[dir="rtl"] #user-roles i[data-lucide] {
+  direction: ltr;
+}
+
+
+
+/* ==========================================
+   BENEFITS SECTION RTL SUPPORT
+========================================== */
+
+html[dir="rtl"] #benefits {
+  direction: rtl;
+  text-align: right;
+}
+
+/* Benefit card text alignment */
+html[dir="rtl"] #benefits .grid > div {
+  text-align: right;
+}
+
+/* Keep CTA arrow and text aligned */
+html[dir="rtl"] #benefits .btn-primary {
+  flex-direction: row;
+}
+
+/* Preserve icon direction */
+html[dir="rtl"] #benefits i[data-lucide] {
+  direction: ltr;
+}
+
+
+
+/* How It Works - RTL */
+html[dir="rtl"] #how-it-works {
+  direction: rtl;
+}
+
+html[dir="rtl"] #how-it-works h2,
+html[dir="rtl"] #how-it-works p,
+html[dir="rtl"] #how-it-works h3,
+html[dir="rtl"] #how-it-works .eyebrow {
+  direction: rtl;
+}
+
+/* Keep timeline numbers and icons correctly displayed */
+html[dir="rtl"] #how-it-works .relative.z-10,
+html[dir="rtl"] #how-it-works i[data-lucide] {
+  direction: ltr;
+}
+
+/* Keep card content centered */
+html[dir="rtl"] #how-it-works .text-center {
+  text-align: center;
+}
+
+/* Keep the bottom CTA centered */
+html[dir="rtl"] #how-it-works .btn-primary {
+  direction: rtl;
+  justify-content: center;
+}
+
+
+
+
+/* FAQ Section - RTL */
+html[dir="rtl"] #faq {
+  direction: rtl;
+  text-align: right;
+}
+
+html[dir="rtl"] #faq .faq-question {
+  text-align: right;
+  direction: rtl;
+}
+
+html[dir="rtl"] #faq .faq-question i[data-lucide],
+html[dir="rtl"] #faq a i[data-lucide] {
+  direction: ltr;
+}
+
+html[dir="rtl"] #faq .faq-answer p {
+  text-align: right;
+  direction: rtl;
+}
+
+
+
+/* Contact Section - RTL */
+html[dir="rtl"] #contact {
+  direction: rtl;
+  text-align: center;
+}
+
+html[dir="rtl"] #contact h2,
+html[dir="rtl"] #contact p,
+html[dir="rtl"] #contact span {
+  direction: rtl;
+}
+
+html[dir="rtl"] #contact .flex {
+  direction: rtl;
+}
+
+html[dir="rtl"] #contact a {
+  justify-content: center;
+}
+
+html[dir="rtl"] #contact i[data-lucide] {
+  direction: ltr;
+}
+
+
+
+/* Footer - RTL */
+html[dir="rtl"] #footer {
+  direction: rtl;
+  text-align: right;
+}
+
+html[dir="rtl"] #footer .flex-col {
+  text-align: right;
+}
+
+html[dir="rtl"] #footer a {
+  direction: rtl;
+}
+
+html[dir="rtl"] #footer i[data-lucide] {
+  direction: ltr;
+}
+
+/* Email card */
+html[dir="rtl"] #footer a[href^="mailto:"] {
+  flex-direction: row;
+  text-align: right;
+}
+
+html[dir="rtl"] #footer a[href^="mailto:"] > span:last-child {
+  direction: ltr;
+  text-align: left;
+}
+
+/* Bottom footer */
+html[dir="rtl"] #footer .container-wide.flex {
+  text-align: center;
+}
+
+@media (min-width: 640px) {
+  html[dir="rtl"] #footer .container-wide.flex {
+    text-align: right;
   }
 }

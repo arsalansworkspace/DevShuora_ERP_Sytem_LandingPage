@@ -1890,6 +1890,202 @@ h1, h2, h3, .font-display {
     transition: none !important;
   }
 }
+html[dir="rtl"] {
+  direction: rtl;
+}
+html[dir="rtl"] body {
+  text-align: right;
+}
+html[dir="rtl"] input, html[dir="rtl"] textarea, html[dir="rtl"] select {
+  text-align: right;
+}
+html[lang="ur"], html[lang="sd"] {
+  font-family: "Noto Sans Arabic", sans-serif;
+}
+html[dir="rtl"] i[data-lucide] {
+  direction: ltr;
+}
+html[dir="rtl"] .nav-link {
+  direction: rtl;
+}
+html[dir="rtl"] #home h1, html[dir="rtl"] #home p, html[dir="rtl"] #home .eyebrow {
+  text-align: right;
+}
+html[dir="rtl"] #home .flex.flex-col {
+  direction: rtl;
+}
+html[dir="rtl"] #home .flex.flex-wrap {
+  direction: rtl;
+}
+html[dir="rtl"] #home img {
+  direction: ltr;
+}
+@media (max-width: 639px) {
+  html[dir="rtl"] #home .btn-primary, html[dir="rtl"] #home .btn-secondary {
+    justify-content: center;
+  }
+}
+html[dir="rtl"] #about {
+  text-align: right;
+}
+html[dir="rtl"] #about .h-1.w-16 {
+  margin-left: auto;
+  margin-right: 0;
+}
+html[dir="rtl"] #about .group > div:first-child {
+  margin-left: auto;
+  margin-right: 0;
+}
+html[dir="rtl"] #about i[data-lucide] {
+  direction: ltr;
+}
+html[dir="rtl"] #dashboard-overview {
+  direction: rtl;
+}
+html[dir="rtl"] #dashboard-overview .grid.text-left {
+  text-align: right;
+}
+html[dir="rtl"] #dashboard-overview .grid.text-left > div {
+  flex-direction: row;
+  text-align: right;
+}
+html[dir="rtl"] #dashboard-overview img {
+  direction: ltr;
+}
+html[dir="rtl"] #dashboard-overview > .container-wide > .reveal:last-child {
+  text-align: center;
+}
+html[dir="rtl"] #features {
+  direction: rtl;
+  text-align: right;
+}
+html[dir="rtl"] #features > .container-wide > .reveal:first-child {
+  text-align: center;
+}
+html[dir="rtl"] #features h2, html[dir="rtl"] #features h3, html[dir="rtl"] #features p, html[dir="rtl"] #features .eyebrow {
+  direction: rtl;
+}
+html[dir="rtl"] #features .rounded-full {
+  direction: rtl;
+}
+html[dir="rtl"] #features ul li {
+  flex-direction: row;
+  text-align: right;
+}
+html[dir="rtl"] #features a {
+  direction: rtl;
+}
+html[dir="rtl"] #features i[data-lucide] {
+  direction: ltr;
+}
+html[dir="rtl"] #features img {
+  direction: ltr;
+}
+html[dir="rtl"] #features .bg-brand-navy h3, html[dir="rtl"] #features .bg-brand-navy p {
+  text-align: right;
+}
+html[dir="rtl"] #features .btn-primary {
+  direction: rtl;
+  justify-content: center;
+}
+html[dir="rtl"] #user-roles {
+  direction: rtl;
+}
+html[dir="rtl"] #user-roles .group {
+  text-align: center;
+}
+html[dir="rtl"] #user-roles i[data-lucide] {
+  direction: ltr;
+}
+html[dir="rtl"] #benefits {
+  direction: rtl;
+  text-align: right;
+}
+html[dir="rtl"] #benefits .grid > div {
+  text-align: right;
+}
+html[dir="rtl"] #benefits .btn-primary {
+  flex-direction: row;
+}
+html[dir="rtl"] #benefits i[data-lucide] {
+  direction: ltr;
+}
+html[dir="rtl"] #how-it-works {
+  direction: rtl;
+}
+html[dir="rtl"] #how-it-works h2, html[dir="rtl"] #how-it-works p, html[dir="rtl"] #how-it-works h3, html[dir="rtl"] #how-it-works .eyebrow {
+  direction: rtl;
+}
+html[dir="rtl"] #how-it-works .relative.z-10, html[dir="rtl"] #how-it-works i[data-lucide] {
+  direction: ltr;
+}
+html[dir="rtl"] #how-it-works .text-center {
+  text-align: center;
+}
+html[dir="rtl"] #how-it-works .btn-primary {
+  direction: rtl;
+  justify-content: center;
+}
+html[dir="rtl"] #faq {
+  direction: rtl;
+  text-align: right;
+}
+html[dir="rtl"] #faq .faq-question {
+  text-align: right;
+  direction: rtl;
+}
+html[dir="rtl"] #faq .faq-question i[data-lucide], html[dir="rtl"] #faq a i[data-lucide] {
+  direction: ltr;
+}
+html[dir="rtl"] #faq .faq-answer p {
+  text-align: right;
+  direction: rtl;
+}
+html[dir="rtl"] #contact {
+  direction: rtl;
+  text-align: center;
+}
+html[dir="rtl"] #contact h2, html[dir="rtl"] #contact p, html[dir="rtl"] #contact span {
+  direction: rtl;
+}
+html[dir="rtl"] #contact .flex {
+  direction: rtl;
+}
+html[dir="rtl"] #contact a {
+  justify-content: center;
+}
+html[dir="rtl"] #contact i[data-lucide] {
+  direction: ltr;
+}
+html[dir="rtl"] #footer {
+  direction: rtl;
+  text-align: right;
+}
+html[dir="rtl"] #footer .flex-col {
+  text-align: right;
+}
+html[dir="rtl"] #footer a {
+  direction: rtl;
+}
+html[dir="rtl"] #footer i[data-lucide] {
+  direction: ltr;
+}
+html[dir="rtl"] #footer a[href^="mailto:"] {
+  flex-direction: row;
+  text-align: right;
+}
+html[dir="rtl"] #footer a[href^="mailto:"] > span:last-child {
+  direction: ltr;
+  text-align: left;
+}
+html[dir="rtl"] #footer .container-wide.flex {
+  text-align: center;
+}
+@media (min-width: 640px) {
+  html[dir="rtl"] #footer .container-wide.flex {
+    text-align: right;
+  }
+}
 @property --tw-translate-x {
   syntax: "*";
   inherits: false;
