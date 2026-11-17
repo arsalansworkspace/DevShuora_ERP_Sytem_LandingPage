@@ -237,3 +237,89 @@ h1, h2, h3, .font-display {
     transform: none; 
   } 
 }
+
+
+
+
+
+
+/* =====================================
+   HERO DASHBOARD IMAGE ANIMATIONS
+===================================== */
+
+/* Main Dashboard Entrance */
+.dashboard-main-image {
+  animation: dashboardEntrance 1.1s ease-out both;
+  transform-origin: center;
+}
+
+/* Student Management Floating */
+.student-float {
+  animation: studentFloating 5s ease-in-out infinite;
+  animation-delay: 0.8s;
+}
+
+/* Attendance Management Floating */
+.attendance-float {
+  animation: attendanceFloating 6s ease-in-out infinite;
+  animation-delay: 1.2s;
+}
+
+/* Screenshot Hover Effect */
+.dashboard-image {
+  transition: transform 0.5s ease;
+}
+
+.dashboard-main-image:hover .dashboard-image,
+.student-float:hover .dashboard-image,
+.attendance-float:hover .dashboard-image {
+  transform: scale(1.035);
+}
+
+/* Entrance Animation */
+@keyframes dashboardEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(35px) scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Student Floating Animation */
+@keyframes studentFloating {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+/* Attendance Floating Animation */
+@keyframes attendanceFloating {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(12px);
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .dashboard-main-image,
+  .student-float,
+  .attendance-float {
+    animation: none !important;
+  }
+
+  .dashboard-image {
+    transition: none !important;
+  }
+}
