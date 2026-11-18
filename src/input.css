@@ -1,985 +1,1648 @@
 @import "tailwindcss";
 
 @theme {
+
   --color-brand-navy: #0b2861;
+
   --color-brand-blue: #0879c9;
+
   --color-brand-cyan: #08b8c9;
+
   --color-brand-soft: #f4f8fc;
+
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+
   --font-display: "Poppins", ui-sans-serif, system-ui, sans-serif;
+
 }
 
 /* ==========================================
+
    Base & Element Styles
+
    ========================================== */
-html { 
-  scroll-behavior: smooth; 
-  scroll-padding-top: 6rem; 
+
+html {
+
+  scroll-behavior: smooth;
+
+  scroll-padding-top: 6rem;
+
 }
 
-body { 
-  font-family: var(--font-sans); 
-  color: #14233d; 
+body {
+
+  font-family: var(--font-sans);
+
+  color: #14233d;
+
 }
 
-h1, h2, h3, .font-display { 
-  font-family: var(--font-display); 
+h1, h2, h3, .font-display {
+
+  font-family: var(--font-display);
+
 }
 
-::selection { 
-  background: #c9f4f6; 
-  color: #0b2861; 
+::selection {
+
+  background: #c9f4f6;
+
+  color: #0b2861;
+
 }
-
-
-
 
 /* =========================================
+
    DEVSHUORA ERP - PAGE INTRO ANIMATION
-========================================= */
+
+\========================================= */
 
 .page-loader {
+
   position: fixed;
+
   inset: 0;
+
   z-index: 99999;
+
   display: flex;
+
   align-items: center;
+
   justify-content: center;
+
   overflow: hidden;
+
   background: #ffffff;
+
   transition: opacity 0.6s ease, visibility 0.6s ease;
+
 }
 
 .page-loader.loader-hidden {
+
   opacity: 0;
+
   visibility: hidden;
+
   pointer-events: none;
+
 }
 
 .loader-content {
+
   width: 100%;
+
   max-width: 420px;
+
   padding: 24px;
+
   text-align: center;
+
 }
 
 /* Logo */
 
 .loader-logo {
+
   display: inline-flex;
+
   align-items: center;
+
   justify-content: center;
+
   animation: logo-appear 0.8s ease both;
+
 }
 
 .loader-logo img {
+
   width: 210px;
+
   height: 75px;
+
   object-fit: contain;
+
 }
 
 /* Heading */
 
 .loader-heading {
+
   margin-top: 12px;
+
   color: #0b2861;
+
   font-size: 21px;
+
   font-weight: 800;
+
   animation: fade-up 0.8s 0.2s ease both;
+
 }
 
 .loader-subheading {
+
   margin-top: 6px;
+
   color: #64748b;
+
   font-size: 13px;
+
   animation: fade-up 0.8s 0.35s ease both;
+
 }
 
 /* Module Network */
 
 .loader-modules {
+
   position: relative;
+
   width: 290px;
+
   height: 230px;
+
   margin: 28px auto 22px;
+
 }
 
 .loader-center {
+
   position: absolute;
+
   top: 50%;
+
   left: 50%;
+
   z-index: 2;
+
   display: flex;
+
   width: 72px;
+
   height: 72px;
+
   align-items: center;
+
   justify-content: center;
+
   transform: translate(-50%, -50%);
+
   border: 2px solid #dbeafe;
+
   border-radius: 22px;
+
   background: #0b2861;
+
   color: #ffffff;
+
   box-shadow: 0 0 0 9px #eff6ff, 0 10px 35px #0b286130;
+
   animation: center-pulse 2s ease-in-out infinite;
+
 }
 
 .loader-center i {
+
   width: 32px;
+
   height: 32px;
+
 }
 
 /* Module Cards */
 
 .loader-module {
+
   position: absolute;
+
   z-index: 3;
+
   display: flex;
+
   min-width: 112px;
+
   align-items: center;
+
   gap: 7px;
+
   padding: 10px 12px;
+
   border: 1px solid #e2e8f0;
+
   border-radius: 12px;
+
   background: #ffffff;
+
   color: #0b2861;
+
   font-size: 11px;
+
   font-weight: 700;
+
   box-shadow: 0 8px 24px #0b286110;
+
   opacity: 0;
+
   animation: module-appear 0.6s ease forwards;
+
 }
 
 .loader-module i {
+
   width: 16px;
+
   height: 16px;
+
   color: #0879c9;
+
 }
 
 /* Module Positions */
 
 .module-one {
+
   top: 0;
+
   left: 0;
+
   animation-delay: 0.35s;
+
 }
 
 .module-two {
+
   top: 0;
+
   right: 0;
+
   animation-delay: 0.5s;
+
 }
 
 .module-three {
+
   bottom: 0;
+
   left: 0;
+
   animation-delay: 0.65s;
+
 }
 
 .module-four {
+
   right: 0;
+
   bottom: 0;
+
   animation-delay: 0.8s;
+
 }
 
 /* Connecting Lines */
 
 .loader-line {
+
   position: absolute;
+
   top: 50%;
+
   left: 50%;
+
   z-index: 1;
+
   width: 90px;
+
   height: 2px;
+
   transform-origin: left center;
+
   background: linear-gradient(90deg, #08b8c9, #0879c9);
+
   opacity: 0;
+
   animation: line-appear 0.6s 0.5s ease forwards;
+
 }
 
 .loader-line-one {
+
   transform: rotate(218deg);
+
 }
 
 .loader-line-two {
+
   transform: rotate(322deg);
+
 }
 
 .loader-line-three {
+
   transform: rotate(142deg);
+
 }
 
 .loader-line-four {
+
   transform: rotate(38deg);
+
 }
 
 /* Progress Bar */
 
 .loader-progress {
+
   width: 180px;
+
   height: 4px;
+
   margin: 0 auto;
+
   overflow: hidden;
+
   border-radius: 20px;
+
   background: #e2e8f0;
+
 }
 
 .loader-progress-bar {
+
   width: 100%;
+
   height: 100%;
+
   transform: scaleX(0);
+
   transform-origin: left;
+
   border-radius: 20px;
+
   background: linear-gradient(90deg, #0879c9, #08b8c9);
+
   animation: progress-fill 1.4s ease forwards;
+
 }
 
 .loader-footer {
+
   margin-top: 15px;
+
   color: #94a3b8;
+
   font-size: 9px;
+
   font-weight: 800;
+
   letter-spacing: 2px;
+
   animation: fade-up 0.8s 0.5s ease both;
+
 }
 
 /* Animations */
 
 @keyframes logo-appear {
+
   from {
+
     opacity: 0;
+
     transform: translateY(15px) scale(0.9);
+
   }
+
   to {
+
     opacity: 1;
+
     transform: translateY(0) scale(1);
+
   }
+
 }
 
 @keyframes fade-up {
+
   from {
+
     opacity: 0;
+
     transform: translateY(12px);
+
   }
+
   to {
+
     opacity: 1;
+
     transform: translateY(0);
+
   }
+
 }
 
 @keyframes module-appear {
+
   from {
+
     opacity: 0;
+
     transform: scale(0.7);
+
   }
+
   to {
+
     opacity: 1;
+
     transform: scale(1);
+
   }
+
 }
 
 @keyframes center-pulse {
+
   0%, 100% {
+
     box-shadow: 0 0 0 9px #eff6ff, 0 10px 35px #0b286130;
+
   }
+
   50% {
+
     box-shadow: 0 0 0 14px #eff6ff, 0 10px 45px #0879c940;
+
   }
+
 }
 
 @keyframes line-appear {
+
   from {
+
     opacity: 0;
+
     scale: 0 1;
+
   }
+
   to {
+
     opacity: 0.7;
+
     scale: 1 1;
+
   }
+
 }
 
 @keyframes progress-fill {
+
   to {
+
     transform: scaleX(1);
+
   }
+
 }
 
 /* Mobile */
 
 @media (max-width: 480px) {
+
   .loader-content {
+
     padding: 16px;
+
   }
 
   .loader-logo img {
+
     width: 180px;
+
   }
 
   .loader-modules {
+
     transform: scale(0.9);
+
     margin-top: 18px;
+
     margin-bottom: 12px;
+
   }
 
   .loader-heading {
+
     font-size: 19px;
+
   }
+
 }
 
 /* Accessibility */
 
 @media (prefers-reduced-motion: reduce) {
+
   .page-loader,
-  .loader-content *,
-  .loader-modules * {
+
+  .loader-content \*,
+
+  .loader-modules \* {
+
     animation-duration: 0.01ms !important;
+
     animation-iteration-count: 1 !important;
+
   }
+
 }
 
-
 /* ==========================================
+
    Navigation Component
+
    ========================================== */
+
 .nav-link {
+
   position: relative;
+
   display: flex;
+
   align-items: center;
+
   color: #475569;
+
   font-size: 0.875rem; /* 14px / standardized */
+
   font-weight: 600;
+
   transition: color 0.2s ease;
+
 }
 
 .nav-link:hover,
+
 .nav-link.active {
+
   color: #0879c9;
+
 }
 
 /* Desktop active indicator line */
+
 @media (min-width: 1024px) {
+
   .nav-link::after {
+
     content: "";
+
     position: absolute;
+
     bottom: 0;
+
     left: 12px;
+
     right: 12px;
+
     height: 2px;
+
     border-radius: 10px;
+
     background: #0879c9;
+
     transform: scaleX(0);
+
     transition: transform 0.25s ease;
+
   }
 
   .nav-link:hover::after,
+
   .nav-link.active::after {
+
     transform: scaleX(1);
+
+  }
+
+}
+
+/* ==========================================
+
+   Layout & Utility Components
+
+   ========================================== */
+
+.container-wide {
+
+  width: min(calc(100% - 2rem), 1200px);
+
+  margin-inline: auto;
+
+}
+
+.section-pad {
+
+  padding-block: 5.5rem;
+
+}
+
+.eyebrow {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: .55rem;
+
+  color: #0879c9;
+
+  font-size: .75rem;
+
+  font-weight: 800;
+
+  letter-spacing: .14em;
+
+  text-transform: uppercase;
+
+}
+
+.eyebrow:before {
+
+  content: "";
+
+  width: 1.6rem;
+
+  height: 2px;
+
+  background: #08b8c9;
+
+}
+
+/* ==========================================
+
+   Buttons
+
+   ========================================== */
+
+.btn-primary {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: .55rem;
+
+  border-radius: .8rem;
+
+  background: #0879c9;
+
+  color: white;
+
+  padding: .9rem 1.25rem;
+
+  font-weight: 700;
+
+  box-shadow: 0 10px 24px rgb(8 121 201 / .18);
+
+  transition: transform .2s, background .2s;
+
+}
+
+.btn-primary:hover {
+
+  transform: translateY(-2px);
+
+  background: #0669ae;
+
+}
+
+.btn-secondary {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: .55rem;
+
+  border: 1px solid #d8e4f0;
+
+  border-radius: .8rem;
+
+  background: white;
+
+  color: #0b2861;
+
+  padding: .9rem 1.25rem;
+
+  font-weight: 700;
+
+  transition: transform .2s, border-color .2s;
+
+}
+
+.btn-secondary:hover {
+
+  transform: translateY(-2px);
+
+  border-color: #0879c9;
+
+}
+
+/* ==========================================
+
+   Effects & Backgrounds
+
+   ========================================== */
+
+.soft-grid {
+
+  background-image: linear-gradient(rgb(8 121 201 / .055) 1px, transparent 1px),
+
+                    linear-gradient(90deg, rgb(8 121 201 / .055) 1px, transparent 1px);
+
+  background-size: 34px 34px;
+
+}
+
+.reveal {
+
+  opacity: 0;
+
+  transform: translateY(22px);
+
+  transition: opacity .7s ease, transform .7s ease;
+
+}
+
+.reveal.is-visible {
+
+  opacity: 1;
+
+  transform: translateY(0);
+
+}
+
+/* ==========================================
+
+   FAQ Accordion
+
+   ========================================== */
+
+.faq-answer {
+
+  display: grid;
+
+  grid-template-rows: 0fr;
+
+  transition: grid-template-rows .28s ease;
+
+}
+
+.faq-answer > div {
+
+  overflow: hidden;
+
+}
+
+.faq-item.open .faq-answer {
+
+  grid-template-rows: 1fr;
+
+}
+
+.faq-item.open .faq-chevron {
+
+  transform: rotate(180deg);
+
+}
+
+.faq-chevron {
+
+  transition: transform .2s;
+
+}
+
+/* ========================================
+   HERO ENTRANCE ANIMATIONS
+   Starts after the page loader has disappeared
+======================================== */
+
+@keyframes heroSlideFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-90px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes heroSlideFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(90px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Hero text: staggered entrance after the loader */
+.hero-enter-left > * {
+  opacity: 0;
+  animation: heroSlideFromLeft 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.hero-enter-left > *:nth-child(1) { animation-delay: 2.0s; }
+.hero-enter-left > *:nth-child(2) { animation-delay: 2.40s; }
+.hero-enter-left > *:nth-child(3) { animation-delay: 2.30s; }
+.hero-enter-left > *:nth-child(4) { animation-delay: 2.45s; }
+.hero-enter-left > *:nth-child(5) { animation-delay: 2.35s; }
+
+/* Dashboard entrance after the loader */
+.hero-enter-right {
+  opacity: 0;
+  animation: heroSlideFromRight 1.1s cubic-bezier(0.22, 1, 0.36, 1) 2.9s forwards;
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .hero-enter-left > *,
+  .hero-enter-right {
+    opacity: 1;
+    transform: none;
+    animation: none;
   }
 }
 
 /* ==========================================
-   Layout & Utility Components
-   ========================================== */
-.container-wide { 
-  width: min(calc(100% - 2rem), 1200px); 
-  margin-inline: auto; 
-}
 
-.section-pad { 
-  padding-block: 5.5rem; 
-}
-
-.eyebrow { 
-  display: inline-flex; 
-  align-items: center; 
-  gap: .55rem; 
-  color: #0879c9; 
-  font-size: .75rem; 
-  font-weight: 800; 
-  letter-spacing: .14em; 
-  text-transform: uppercase; 
-}
-
-.eyebrow:before { 
-  content: ""; 
-  width: 1.6rem; 
-  height: 2px; 
-  background: #08b8c9; 
-}
-
-/* ==========================================
-   Buttons
-   ========================================== */
-.btn-primary { 
-  display: inline-flex; 
-  align-items: center; 
-  justify-content: center; 
-  gap: .55rem; 
-  border-radius: .8rem; 
-  background: #0879c9; 
-  color: white; 
-  padding: .9rem 1.25rem; 
-  font-weight: 700; 
-  box-shadow: 0 10px 24px rgb(8 121 201 / .18); 
-  transition: transform .2s, background .2s; 
-}
-
-.btn-primary:hover { 
-  transform: translateY(-2px); 
-  background: #0669ae; 
-}
-
-.btn-secondary { 
-  display: inline-flex; 
-  align-items: center; 
-  justify-content: center; 
-  gap: .55rem; 
-  border: 1px solid #d8e4f0; 
-  border-radius: .8rem; 
-  background: white; 
-  color: #0b2861; 
-  padding: .9rem 1.25rem; 
-  font-weight: 700; 
-  transition: transform .2s, border-color .2s; 
-}
-
-.btn-secondary:hover { 
-  transform: translateY(-2px); 
-  border-color: #0879c9; 
-}
-
-/* ==========================================
-   Effects & Backgrounds
-   ========================================== */
-.soft-grid { 
-  background-image: linear-gradient(rgb(8 121 201 / .055) 1px, transparent 1px), 
-                    linear-gradient(90deg, rgb(8 121 201 / .055) 1px, transparent 1px); 
-  background-size: 34px 34px; 
-}
-
-.reveal { 
-  opacity: 0; 
-  transform: translateY(22px); 
-  transition: opacity .7s ease, transform .7s ease; 
-}
-
-.reveal.is-visible { 
-  opacity: 1; 
-  transform: translateY(0); 
-}
-
-/* ==========================================
-   FAQ Accordion
-   ========================================== */
-.faq-answer { 
-  display: grid; 
-  grid-template-rows: 0fr; 
-  transition: grid-template-rows .28s ease; 
-}
-
-.faq-answer > div { 
-  overflow: hidden; 
-}
-
-.faq-item.open .faq-answer { 
-  grid-template-rows: 1fr; 
-}
-
-.faq-item.open .faq-chevron { 
-  transform: rotate(180deg); 
-}
-
-.faq-chevron { 
-  transition: transform .2s; 
-}
-
-/* ==========================================
    Dashboard Components
+
    ========================================== */
-.dashboard-screen { 
-  background: #f8fbff; 
-  border: 1px solid #dbe7f3; 
-  border-radius: 1rem; 
-  overflow: hidden; 
-  box-shadow: 0 28px 70px rgb(3 23 62 / .22); 
+
+.dashboard-screen {
+
+  background: #f8fbff;
+
+  border: 1px solid #dbe7f3;
+
+  border-radius: 1rem;
+
+  overflow: hidden;
+
+  box-shadow: 0 28px 70px rgb(3 23 62 / .22);
+
 }
 
-.dashboard-sidebar { 
-  background: #10346f; 
+.dashboard-sidebar {
+
+  background: #10346f;
+
 }
 
-.dashboard-stat { 
-  border: 1px solid #e4edf6; 
-  border-radius: .75rem; 
-  background: white; 
-  padding: .85rem; 
+.dashboard-stat {
+
+  border: 1px solid #e4edf6;
+
+  border-radius: .75rem;
+
+  background: white;
+
+  padding: .85rem;
+
 }
 
-.mini-bar { 
-  height: 8px; 
-  border-radius: 999px; 
-  background: #e6eef7; 
-  overflow: hidden; 
+.mini-bar {
+
+  height: 8px;
+
+  border-radius: 999px;
+
+  background: #e6eef7;
+
+  overflow: hidden;
+
 }
 
-.mini-bar > span { 
-  display: block; 
-  height: 100%; 
-  border-radius: inherit; 
-  background: linear-gradient(90deg, #0879c9, #08b8c9); 
+.mini-bar > span {
+
+  display: block;
+
+  height: 100%;
+
+  border-radius: inherit;
+
+  background: linear-gradient(90deg, #0879c9, #08b8c9);
+
 }
 
 /* ==========================================
+
    Accessibility (Reduced Motion)
+
    ========================================== */
-@media (prefers-reduced-motion: reduce) { 
-  *, *::before, *::after { 
-    scroll-behavior: auto !important; 
-    animation-duration: .01ms !important; 
-    transition-duration: .01ms !important; 
-  } 
-  
-  .reveal { 
-    opacity: 1; 
-    transform: none; 
-  } 
+
+@media (prefers-reduced-motion: reduce) {
+
+  \*, \*::before, \*::after {
+
+    scroll-behavior: auto !important;
+
+    animation-duration: .01ms !important;
+
+    transition-duration: .01ms !important;
+
+  }
+
+  .reveal {
+
+    opacity: 1;
+
+    transform: none;
+
+  }
+
 }
-
-
-
-
 
 /* =====================================
+
    HERO DASHBOARD IMAGE ANIMATIONS
-===================================== */
+
+\===================================== */
 
 /* Main Dashboard Entrance */
+
 .dashboard-main-image {
+
   animation: dashboardEntrance 1.1s ease-out both;
+
   transform-origin: center;
+
 }
 
 /* Student Management Floating */
+
 .student-float {
+
   animation: studentFloating 5s ease-in-out infinite;
+
   animation-delay: 0.8s;
+
 }
 
 /* Attendance Management Floating */
+
 .attendance-float {
+
   animation: attendanceFloating 6s ease-in-out infinite;
+
   animation-delay: 1.2s;
+
 }
 
 /* Screenshot Hover Effect */
+
 .dashboard-image {
+
   transition: transform 0.5s ease;
+
 }
 
 .dashboard-main-image:hover .dashboard-image,
+
 .student-float:hover .dashboard-image,
+
 .attendance-float:hover .dashboard-image {
+
   transform: scale(1.035);
+
 }
 
 /* Entrance Animation */
+
 @keyframes dashboardEntrance {
+
   from {
+
     opacity: 0;
+
     transform: translateY(35px) scale(0.96);
+
   }
 
   to {
+
     opacity: 1;
+
     transform: translateY(0) scale(1);
+
   }
+
 }
 
 /* Student Floating Animation */
+
 @keyframes studentFloating {
+
   0%, 100% {
+
     transform: translateY(0);
+
   }
 
   50% {
+
     transform: translateY(-12px);
+
   }
+
 }
 
 /* Attendance Floating Animation */
+
 @keyframes attendanceFloating {
+
   0%, 100% {
+
     transform: translateY(0);
+
   }
 
   50% {
+
     transform: translateY(12px);
+
   }
+
 }
 
 /* Accessibility */
+
 @media (prefers-reduced-motion: reduce) {
+
   .dashboard-main-image,
+
   .student-float,
+
   .attendance-float {
+
     animation: none !important;
+
   }
 
   .dashboard-image {
+
     transition: none !important;
+
   }
+
 }
 
-
-
 /* ==========================================
+
    RTL LANGUAGE SUPPORT
-========================================== */
+
+\========================================== */
 
 html[dir="rtl"] {
+
   direction: rtl;
+
 }
 
 html[dir="rtl"] body {
+
   text-align: right;
+
 }
 
 /* Keep form controls readable in RTL */
+
 html[dir="rtl"] input,
+
 html[dir="rtl"] textarea,
+
 html[dir="rtl"] select {
+
   text-align: right;
+
 }
 
 /* Urdu and Sindhi typography */
+
 html[lang="ur"],
+
 html[lang="sd"] {
+
   font-family: "Noto Sans Arabic", sans-serif;
+
 }
 
 /* Keep Lucide icons from being mirrored */
+
 html[dir="rtl"] i[data-lucide] {
+
   direction: ltr;
+
 }
 
 /* Navigation spacing */
+
 html[dir="rtl"] .nav-link {
+
   direction: rtl;
+
 }
 
-
-
 /* ==========================================
+
    HERO RTL SUPPORT
-========================================== */
+
+\========================================== */
 
 html[dir="rtl"] #home h1,
+
 html[dir="rtl"] #home p,
+
 html[dir="rtl"] #home .eyebrow {
+
   text-align: right;
+
 }
 
 html[dir="rtl"] #home .flex.flex-col {
+
   direction: rtl;
+
 }
 
 html[dir="rtl"] #home .flex.flex-wrap {
+
   direction: rtl;
+
 }
 
 /* Keep dashboard screenshots unchanged */
+
 html[dir="rtl"] #home img {
+
   direction: ltr;
+
 }
 
 /* Mobile alignment */
+
 @media (max-width: 639px) {
+
   html[dir="rtl"] #home .btn-primary,
+
   html[dir="rtl"] #home .btn-secondary {
+
     justify-content: center;
+
   }
+
 }
 
-
-
 /* ==========================================
+
    ABOUT SECTION RTL SUPPORT
-========================================== */
+
+\========================================== */
 
 html[dir="rtl"] #about {
+
   text-align: right;
+
 }
 
 /* Keep the decorative underline aligned to the right */
+
 html[dir="rtl"] #about .h-1.w-16 {
+
   margin-left: auto;
+
   margin-right: 0;
+
 }
 
 /* Align benefit card icons with RTL text */
+
 html[dir="rtl"] #about .group > div:first-child {
+
   margin-left: auto;
+
   margin-right: 0;
+
 }
 
 /* Keep icons in their original direction */
+
 html[dir="rtl"] #about i[data-lucide] {
+
   direction: ltr;
+
 }
 
-
-
 /* ==========================================
+
    DASHBOARD OVERVIEW RTL SUPPORT
-========================================== */
+
+\========================================== */
 
 html[dir="rtl"] #dashboard-overview {
+
   direction: rtl;
+
 }
 
 /* Benefit cards */
+
 html[dir="rtl"] #dashboard-overview .grid.text-left {
+
   text-align: right;
+
 }
 
 /* Keep benefit icons correctly positioned */
+
 html[dir="rtl"] #dashboard-overview .grid.text-left > div {
+
   flex-direction: row;
+
   text-align: right;
+
 }
 
 /* Keep dashboard screenshot unchanged */
+
 html[dir="rtl"] #dashboard-overview img {
+
   direction: ltr;
+
 }
 
 /* Keep CTA centered */
+
 html[dir="rtl"] #dashboard-overview > .container-wide > .reveal:last-child {
+
   text-align: center;
+
 }
 
-
-
 /* Features Section - RTL */
+
 html[dir="rtl"] #features {
+
   direction: rtl;
+
   text-align: right;
+
 }
 
 /* Section introduction */
+
 html[dir="rtl"] #features > .container-wide > .reveal:first-child {
+
   text-align: center;
+
 }
 
 /* Feature headings and descriptions */
+
 html[dir="rtl"] #features h2,
+
 html[dir="rtl"] #features h3,
+
 html[dir="rtl"] #features p,
+
 html[dir="rtl"] #features .eyebrow {
+
   direction: rtl;
+
 }
 
 /* Feature badges */
+
 html[dir="rtl"] #features .rounded-full {
+
   direction: rtl;
+
 }
 
 /* Feature bullet points */
+
 html[dir="rtl"] #features ul li {
+
   flex-direction: row;
+
   text-align: right;
+
 }
 
 /* Feature links */
+
 html[dir="rtl"] #features a {
+
   direction: rtl;
+
 }
 
 /* Keep icons in their original direction */
+
 html[dir="rtl"] #features i[data-lucide] {
+
   direction: ltr;
+
 }
 
 /* Keep screenshots unchanged */
+
 html[dir="rtl"] #features img {
+
   direction: ltr;
+
 }
 
 /* Bottom CTA */
+
 html[dir="rtl"] #features .bg-brand-navy h3,
+
 html[dir="rtl"] #features .bg-brand-navy p {
+
   text-align: right;
+
 }
 
 html[dir="rtl"] #features .btn-primary {
+
   direction: rtl;
+
   justify-content: center;
+
 }
 
-
-
 /* ==========================================
+
    USER ROLES SECTION RTL SUPPORT
-========================================== */
+
+\========================================== */
 
 html[dir="rtl"] #user-roles {
+
   direction: rtl;
+
 }
 
 /* Keep role cards centered */
+
 html[dir="rtl"] #user-roles .group {
+
   text-align: center;
+
 }
 
 /* Preserve icon direction */
+
 html[dir="rtl"] #user-roles i[data-lucide] {
+
   direction: ltr;
+
 }
 
-
-
 /* ==========================================
+
    BENEFITS SECTION RTL SUPPORT
-========================================== */
+
+\========================================== */
 
 html[dir="rtl"] #benefits {
+
   direction: rtl;
+
   text-align: right;
+
 }
 
 /* Benefit card text alignment */
+
 html[dir="rtl"] #benefits .grid > div {
+
   text-align: right;
+
 }
 
 /* Keep CTA arrow and text aligned */
+
 html[dir="rtl"] #benefits .btn-primary {
+
   flex-direction: row;
+
 }
 
 /* Preserve icon direction */
+
 html[dir="rtl"] #benefits i[data-lucide] {
+
   direction: ltr;
+
 }
 
-
-
 /* How It Works - RTL */
+
 html[dir="rtl"] #how-it-works {
+
   direction: rtl;
+
 }
 
 html[dir="rtl"] #how-it-works h2,
+
 html[dir="rtl"] #how-it-works p,
+
 html[dir="rtl"] #how-it-works h3,
+
 html[dir="rtl"] #how-it-works .eyebrow {
+
   direction: rtl;
+
 }
 
 /* Keep timeline numbers and icons correctly displayed */
+
 html[dir="rtl"] #how-it-works .relative.z-10,
+
 html[dir="rtl"] #how-it-works i[data-lucide] {
+
   direction: ltr;
+
 }
 
 /* Keep card content centered */
+
 html[dir="rtl"] #how-it-works .text-center {
+
   text-align: center;
+
 }
 
 /* Keep the bottom CTA centered */
+
 html[dir="rtl"] #how-it-works .btn-primary {
+
   direction: rtl;
+
   justify-content: center;
+
 }
 
-
-
-
 /* FAQ Section - RTL */
+
 html[dir="rtl"] #faq {
+
   direction: rtl;
+
   text-align: right;
+
 }
 
 html[dir="rtl"] #faq .faq-question {
+
   text-align: right;
+
   direction: rtl;
+
 }
 
 html[dir="rtl"] #faq .faq-question i[data-lucide],
+
 html[dir="rtl"] #faq a i[data-lucide] {
+
   direction: ltr;
+
 }
 
 html[dir="rtl"] #faq .faq-answer p {
+
   text-align: right;
+
   direction: rtl;
+
 }
 
-
-
 /* Contact Section - RTL */
+
 html[dir="rtl"] #contact {
+
   direction: rtl;
+
   text-align: center;
+
 }
 
 html[dir="rtl"] #contact h2,
+
 html[dir="rtl"] #contact p,
+
 html[dir="rtl"] #contact span {
+
   direction: rtl;
+
 }
 
 html[dir="rtl"] #contact .flex {
+
   direction: rtl;
+
 }
 
 html[dir="rtl"] #contact a {
+
   justify-content: center;
+
 }
 
 html[dir="rtl"] #contact i[data-lucide] {
+
   direction: ltr;
+
 }
 
-
-
 /* Footer - RTL */
+
 html[dir="rtl"] #footer {
+
   direction: rtl;
+
   text-align: right;
+
 }
 
 html[dir="rtl"] #footer .flex-col {
+
   text-align: right;
+
 }
 
 html[dir="rtl"] #footer a {
+
   direction: rtl;
+
 }
 
 html[dir="rtl"] #footer i[data-lucide] {
+
   direction: ltr;
+
 }
 
 /* Email card */
+
 html[dir="rtl"] #footer a[href^="mailto:"] {
+
   flex-direction: row;
+
   text-align: right;
+
 }
 
 html[dir="rtl"] #footer a[href^="mailto:"] > span:last-child {
+
   direction: ltr;
+
   text-align: left;
+
 }
 
 /* Bottom footer */
+
 html[dir="rtl"] #footer .container-wide.flex {
+
   text-align: center;
+
 }
 
 @media (min-width: 640px) {
+
   html[dir="rtl"] #footer .container-wide.flex {
+
     text-align: right;
+
   }
+
 }
